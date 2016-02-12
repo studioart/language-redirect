@@ -36,7 +36,9 @@ function language_redirect_plugins_loaded() {
 	if ($redirect_location == null) {
 		return;
 	}
-	if ($redirect_location[0] == '/') {
+    if ( $redirect_location == '/' ) {
+        return;
+    } else if ($redirect_location[0] == '/') {
 		header("Location: ".site_url($redirect_location));
 	} else {
 		header("Location: ".$redirect_location);
